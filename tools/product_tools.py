@@ -19,14 +19,19 @@ def search_products(query: str, category: str, max_price: float) -> str:
     products = load_data("products.json")
     query_lower = query.lower().strip()
     category_lower = category.lower().strip()
+    # Split into individual tokens so "running shoes" matches "Running Shoe" (singular),
+    # and a brand search for "nike air" still works word-by-word.
+    query_tokens = query_lower.split()
+
+    def _matches_query(product: dict) -> bool:
+        name = product["name"].lower()
+        brand = product["brand"].lower()
+        return any(token in name or token in brand for token in query_tokens)
 
     results = [
         product
         for product in products
-        if (
-            query_lower in product["name"].lower()
-            or query_lower in product["brand"].lower()
-        )
+        if _matches_query(product)
         and product["category"].lower() == category_lower
         and product["price"] <= max_price
         and product["in_stock"]
