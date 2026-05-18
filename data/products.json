@@ -1,0 +1,182 @@
+[
+  {
+    "sku": "NK-001",
+    "name": "Nike Air Zoom Pegasus 40 Men's Road Running Shoe",
+    "category": "shoes",
+    "price": 129.99,
+    "brand": "Nike",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Mumbai-Central", "Delhi"]
+  },
+  {
+    "sku": "NK-002",
+    "name": "Nike Air Max 270 Men's Lifestyle Sneaker",
+    "category": "shoes",
+    "price": 144.99,
+    "brand": "Nike",
+    "in_stock": true,
+    "locations": ["Mumbai-Central", "Chennai"]
+  },
+  {
+    "sku": "PM-003",
+    "name": "Puma Deviate Nitro 2 Running Shoe",
+    "category": "shoes",
+    "price": 119.99,
+    "brand": "Puma",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Delhi", "Chennai"]
+  },
+  {
+    "sku": "PM-004",
+    "name": "Puma RS-X Reinvention Athletic Shoe",
+    "category": "shoes",
+    "price": 109.99,
+    "brand": "Puma",
+    "in_stock": true,
+    "locations": ["Delhi", "Mumbai-Central"]
+  },
+  {
+    "sku": "NB-005",
+    "name": "New Balance Fresh Foam X 1080 v13 Running Shoe",
+    "category": "shoes",
+    "price": 139.99,
+    "brand": "New Balance",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Chennai"]
+  },
+  {
+    "sku": "NB-006",
+    "name": "New Balance 574 Core Heritage Sneaker",
+    "category": "shoes",
+    "price": 99.99,
+    "brand": "New Balance",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Mumbai-Central", "Delhi", "Chennai"]
+  },
+  {
+    "sku": "PM-007",
+    "name": "Puma Softride Enzo Evo Running Shoe",
+    "category": "shoes",
+    "price": 79.99,
+    "brand": "Puma",
+    "in_stock": true,
+    "locations": ["Chennai", "Mumbai-Central"]
+  },
+  {
+    "sku": "SM-S901",
+    "name": "Samsung Galaxy S24 5G 256GB",
+    "category": "mobiles",
+    "price": 859.99,
+    "brand": "Samsung",
+    "in_stock": false,
+    "locations": []
+  },
+  {
+    "sku": "SM-A546",
+    "name": "Samsung Galaxy A35 5G 128GB",
+    "category": "mobiles",
+    "price": 349.99,
+    "brand": "Samsung",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Mumbai-Central", "Delhi", "Chennai"]
+  },
+  {
+    "sku": "SM-F731",
+    "name": "Samsung Galaxy Z Flip5 256GB",
+    "category": "mobiles",
+    "price": 999.99,
+    "brand": "Samsung",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Delhi"]
+  },
+  {
+    "sku": "AP-IPH15",
+    "name": "Apple iPhone 15 128GB",
+    "category": "mobiles",
+    "price": 799.99,
+    "brand": "Apple",
+    "in_stock": true,
+    "locations": ["Mumbai-Central", "Delhi", "Chennai"]
+  },
+  {
+    "sku": "AP-IPH15P",
+    "name": "Apple iPhone 15 Pro 256GB",
+    "category": "mobiles",
+    "price": 1099.99,
+    "brand": "Apple",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Mumbai-Central"]
+  },
+  {
+    "sku": "XI-M14",
+    "name": "Xiaomi 14 512GB Leica Optics",
+    "category": "mobiles",
+    "price": 699.99,
+    "brand": "Xiaomi",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Chennai"]
+  },
+  {
+    "sku": "OP-C12",
+    "name": "OnePlus 12 256GB 5G",
+    "category": "mobiles",
+    "price": 799.99,
+    "brand": "OnePlus",
+    "in_stock": true,
+    "locations": ["Delhi", "Mumbai-Central"]
+  },
+  {
+    "sku": "DL-XPS13",
+    "name": "Dell XPS 13 Plus 13.4\" OLED 16GB 512GB",
+    "category": "laptops",
+    "price": 1299.99,
+    "brand": "Dell",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Mumbai-Central"]
+  },
+  {
+    "sku": "DL-INS15",
+    "name": "Dell Inspiron 15 3520 16GB 512GB SSD",
+    "category": "laptops",
+    "price": 599.99,
+    "brand": "Dell",
+    "in_stock": true,
+    "locations": ["Delhi", "Chennai", "Bengaluru"]
+  },
+  {
+    "sku": "HP-ENV14",
+    "name": "HP Envy x360 14 2-in-1 AMD Ryzen 7 16GB",
+    "category": "laptops",
+    "price": 949.99,
+    "brand": "HP",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Delhi"]
+  },
+  {
+    "sku": "HP-PAV15",
+    "name": "HP Pavilion 15 Intel Core i5 16GB 512GB",
+    "category": "laptops",
+    "price": 529.99,
+    "brand": "HP",
+    "in_stock": true,
+    "locations": ["Mumbai-Central", "Chennai"]
+  },
+  {
+    "sku": "AP-MBA",
+    "name": "Apple MacBook Air 13 M2 8-Core 256GB",
+    "category": "laptops",
+    "price": 1099.99,
+    "brand": "Apple",
+    "in_stock": true,
+    "locations": ["Bengaluru", "Mumbai-Central", "Delhi", "Chennai"]
+  },
+  {
+    "sku": "AP-MBP14",
+    "name": "Apple MacBook Pro 14 M3 Pro 18GB 512GB",
+    "category": "laptops",
+    "price": 2099.99,
+    "brand": "Apple",
+    "in_stock": true,
+    "locations": ["Mumbai-Central", "Delhi"]
+  }
+]

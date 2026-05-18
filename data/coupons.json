@@ -1,0 +1,42 @@
+[
+  {
+    "code": "SUMMER20",
+    "discount_percent": 20,
+    "active": true
+  },
+  {
+    "code": "SAVE10",
+    "discount_percent": 10,
+    "active": true
+  },
+  {
+    "code": "FLAT15",
+    "discount_percent": 15,
+    "active": true
+  },
+  {
+    "code": "WELCOME15",
+    "discount_percent": 15,
+    "active": true
+  },
+  {
+    "code": "BFCM25",
+    "discount_percent": 25,
+    "active": true
+  },
+  {
+    "code": "STUDENT12",
+    "discount_percent": 12,
+    "active": true
+  },
+  {
+    "code": "FIRSTBUY8",
+    "discount_percent": 8,
+    "active": true
+  },
+  {
+    "code": "EXPIRED5",
+    "discount_percent": 5,
+    "active": false
+  }
+]

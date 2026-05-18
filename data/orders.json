@@ -1,0 +1,92 @@
+[
+  {
+    "order_id": "CC-4821",
+    "customer_email": "user@example.com",
+    "status": "Shipped",
+    "items": ["NK-001"],
+    "total": 129.99,
+    "tracking_number": "TRK-IN-8899214",
+    "estimated_delivery": "Arriving Wed, 21 May",
+    "can_cancel": false
+  },
+  {
+    "order_id": "CC-9910",
+    "customer_email": "john@example.com",
+    "status": "Processing",
+    "items": ["SM-S901", "PM-003"],
+    "total": 979.98,
+    "tracking_number": null,
+    "estimated_delivery": "Galaxy S24 awaiting stock — Puma item ready to ship",
+    "can_cancel": true
+  },
+  {
+    "order_id": "CC-5001",
+    "customer_email": "sara@example.com",
+    "status": "Delivered",
+    "items": ["NB-005"],
+    "total": 139.99,
+    "tracking_number": "TRK-IN-7751203",
+    "estimated_delivery": "Delivered 12 May • Left with concierge",
+    "can_cancel": false
+  },
+  {
+    "order_id": "CC-1234",
+    "customer_email": "mike@example.com",
+    "status": "Processing",
+    "items": ["HP-PAV15", "PM-004"],
+    "total": 639.98,
+    "tracking_number": null,
+    "estimated_delivery": "Packing now — ETA 4 business days",
+    "can_cancel": true
+  },
+  {
+    "order_id": "CC-7788",
+    "customer_email": "priya.sharma@example.com",
+    "status": "Shipped",
+    "items": ["NB-006", "PM-007"],
+    "total": 179.98,
+    "tracking_number": "TRK-IN-4410782",
+    "estimated_delivery": "Out for delivery tomorrow",
+    "can_cancel": false
+  },
+  {
+    "order_id": "CC-3344",
+    "customer_email": "amit.verma@example.com",
+    "status": "Processing",
+    "items": ["XI-M14"],
+    "total": 699.99,
+    "tracking_number": null,
+    "estimated_delivery": "Payment verified — preparing shipment",
+    "can_cancel": true
+  },
+  {
+    "order_id": "CC-6601",
+    "customer_email": "lisa.nguyen@example.com",
+    "status": "Delivered",
+    "items": ["NK-002"],
+    "total": 144.99,
+    "tracking_number": "TRK-IN-2209981",
+    "estimated_delivery": "Delivered 15 May • Signed: L. Nguyen",
+    "can_cancel": false
+  },
+  {
+    "order_id": "CC-8890",
+    "customer_email": "karan.mehta@example.com",
+    "status": "Shipped",
+    "items": ["DL-INS15", "SM-A546"],
+    "total": 949.98,
+    "tracking_number": "TRK-IN-6634109",
+    "estimated_delivery": "In transit — Bengaluru sorting hub",
+    "can_cancel": false
+  },
+  {
+    "order_id": "CC-7022",
+    "customer_email": "ananya.iyer@example.com",
+    "status": "Delivered",
+    "items": ["AP-MBA"],
+    "total": 1099.99,
+    "tracking_number": "TRK-IN-1103847",
+    "estimated_delivery": "Delivered 10 May",
+    "can_cancel": false
+  }
+]

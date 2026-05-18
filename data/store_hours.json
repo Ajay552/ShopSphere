@@ -1,0 +1,26 @@
+{
+  "Bengaluru": {
+    "weekday": "10:00 AM – 10:00 PM (Phoenix Mall flagship)",
+    "weekend": "10:00 AM – 9:00 PM"
+  },
+  "Mumbai-Central": {
+    "weekday": "10:00 AM – 9:30 PM (High Street branch)",
+    "weekend": "10:00 AM – 8:00 PM"
+  },
+  "Delhi": {
+    "weekday": "10:00 AM – 9:00 PM (Select Citywalk)",
+    "weekend": "11:00 AM – 8:00 PM"
+  },
+  "Chennai": {
+    "weekday": "10:30 AM – 9:00 PM (Express Avenue)",
+    "weekend": "10:00 AM – 8:30 PM"
+  },
+  "Hyderabad": {
+    "weekday": "10:00 AM – 9:00 PM (Inorbit Mall Cyberabad)",
+    "weekend": "10:00 AM – 8:00 PM"
+  },
+  "Pune": {
+    "weekday": "10:30 AM – 9:00 PM (Phoenix Marketcity)",
+    "weekend": "10:30 AM – 8:00 PM"
+  }
+}
