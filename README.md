@@ -43,8 +43,10 @@ From the repository root:
 ```bash
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
-pip install langchain langchain-community langchain-ollama tavily-python python-dotenv streamlit
+pip install -r requirements.txt
 ```
+
+Dependencies (LangChain, Ollama integration, Tavily client, Streamlit, and so on) are pinned in `requirements.txt` for reproducible installs.
 
 Create a `.env` file in the project root (do not commit real keys):
 
@@ -87,6 +89,7 @@ python part_c_multi_agent.py
 ```
 ShopSphere-backend/
 ├── app.py                      # Streamlit entry point
+├── requirements.txt            # pinned Python dependencies
 ├── part_a_basic_agent.py       # Part A: basic tool agent + ShopSphereAgent wrapper
 ├── part_b_deep_agent.py        # Part B: + Tavily web_search tool
 ├── part_c_multi_agent.py       # Part C: keyword router + two domain agents
