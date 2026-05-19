@@ -98,15 +98,19 @@ ShopSphere-backend/
 │   ├── orders.json
 │   ├── coupons.json
 │   └── store_hours.json
+├── prompts/
+│   ├── part_a.yaml             # Part A system prompt
+│   ├── part_b.yaml             # Part B system prompt
+│   └── part_c_domain.yaml      # Part C domain agent template
 ├── tools/
-│   ├── utils.py                # load_data(), get_llm()
+│   ├── utils.py                # load_data(), load_prompt(), get_llm()
 │   ├── product_tools.py        # search, details, inventory, recommendations, coupons
 │   └── order_tools.py          # status, cancel, track, returns
 ├── PRD/ShopSphere_PRD.md
 └── Plan/IMPLEMENTATION_PLAN.md
 ```
 
-All tools read from `data/` through `tools.utils.load_data()`, which resolves paths relative to the package root.
+All tools read from `data/` through `tools.utils.load_data()`, which resolves paths relative to the package root. Agent system prompts live in `prompts/` and are loaded via `tools.utils.load_prompt()` (edit the YAML files to change assistant behavior without touching agent code).
 
 ---
 

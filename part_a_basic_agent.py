@@ -6,7 +6,7 @@ from langchain.tools import tool
 
 from tools.order_tools import get_order_status
 from tools.product_tools import apply_coupon, search_products
-from tools.utils import get_llm, load_data
+from tools.utils import get_llm, load_data, load_prompt
 
 
 @tool
@@ -33,13 +33,6 @@ def get_store_hours(location: str) -> str:
         f"Mon-Fri: {info['weekday']}\n"
         f"Sat-Sun: {info['weekend']}"
     )
-
-
-SYSTEM_PROMPT = """You are ShopBot, a helpful retail assistant for ShopSphere.
-Use the available tools to answer customer queries accurately.
-Always use tools for product search, order status, coupons, and store hours.
-If a tool returns no results, say so clearly and do not guess.
-"""
 
 
 class ShopSphereAgent:
@@ -73,7 +66,7 @@ def create_agent(tools: list, llm) -> ShopSphereAgent:
     graph_agent = create_langchain_agent(
         model=llm,
         tools=tools,
-        system_prompt=SYSTEM_PROMPT,
+        system_prompt=load_prompt("part_a"),
     )
     return ShopSphereAgent(graph_agent)
 

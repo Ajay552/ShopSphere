@@ -11,7 +11,7 @@ from tools.product_tools import (
     get_recommendations,
     search_products,
 )
-from tools.utils import get_llm
+from tools.utils import get_llm, load_prompt
 
 _llm = get_llm()
 
@@ -44,10 +44,7 @@ class DomainAgent:
 
 def make_agent(tools: list, domain: str) -> DomainAgent:
     """Create and return a domain-specialized agent for orchestration."""
-    system_prompt = (
-        f"You are a ShopSphere assistant specializing in {domain}. "
-        "Only use your provided tools and avoid answering outside your domain."
-    )
+    system_prompt = load_prompt("part_c_domain", domain=domain)
     graph_agent = create_langchain_agent(
         model=_llm,
         tools=tools,

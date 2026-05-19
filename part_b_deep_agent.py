@@ -10,7 +10,7 @@ from langchain_core.messages import AIMessage
 from part_a_basic_agent import get_store_hours
 from tools.order_tools import get_order_status
 from tools.product_tools import apply_coupon, search_products
-from tools.utils import get_llm
+from tools.utils import get_llm, load_prompt
 
 load_dotenv()
 
@@ -64,13 +64,6 @@ def web_search(query: str) -> str:
     return "Top web results:\n" + "\n".join(lines)
 
 
-SYSTEM_PROMPT = """You are ShopBot, a smart retail assistant for ShopSphere.
-You can use local store tools and web_search.
-Prefer local tools for orders, coupons, inventory, and store info.
-Use web_search only for live or external information such as trends and reviews.
-"""
-
-
 class DeepShopSphereAgent:
     """Compatibility wrapper that returns {'output': ..., 'messages': ...}."""
 
@@ -102,7 +95,7 @@ def create_deep_agent(tools: list, llm) -> DeepShopSphereAgent:
     graph_agent = create_langchain_agent(
         model=llm,
         tools=tools,
-        system_prompt=SYSTEM_PROMPT,
+        system_prompt=load_prompt("part_b"),
     )
     return DeepShopSphereAgent(graph_agent)
 
