@@ -1,0 +1,31 @@
+max_input_length: 2000
+
+blocked_message: |
+  I can only help with ShopSphere products, orders, coupons, and store hours.
+  Your message looks like an attempt to override my instructions, so I cannot process it.
+  Please ask a shopping-related question instead.
+
+empty_input_message: |
+  Please enter a question about ShopSphere products, orders, coupons, or store hours.
+
+length_exceeded_message: |
+  Your message is too long. Please shorten it and ask about ShopSphere shopping topics.
+
+error_fallback_message: |
+  Something went wrong while processing your request. Please try again, or ask about
+  products, order status, coupons, or store hours.
+
+patterns:
+  - "(?i)ignore\\s+(all\\s+)?(previous|prior)\\s+instructions"
+  - "(?i)disregard\\s+(your\\s+)?(system\\s+)?(prompt|instructions)"
+  - "(?i)reveal\\s+(your\\s+)?system\\s+prompt"
+  - "(?i)(print|show|repeat)\\s+(your\\s+)?(system\\s+)?prompt"
+  - "(?i)you\\s+are\\s+now\\s+(a|an)\\s+"
+  - "(?i)act\\s+as\\s+(if\\s+)?you\\s+(are|were)"
+  - "(?i)jailbreak"
+  - "(?i)\\bdan\\s+mode\\b"
+  - "(?i)override\\s+(your\\s+)?(rules|instructions)"
+  - "(?i)forget\\s+(your\\s+)?(rules|instructions)"
+  - "(?i)new\\s+instructions\\s*:"
+  - "(?i)developer\\s+mode"
+  - "(?i)bypass\\s+(your\\s+)?(safety|restrictions)"

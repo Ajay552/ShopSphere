@@ -11,6 +11,7 @@ from tools.product_tools import (
     get_recommendations,
     search_products,
 )
+from tools.input_guard import check_user_input
 from tools.utils import get_llm, load_prompt
 
 _llm = get_llm()
@@ -25,6 +26,9 @@ class DomainAgent:
     def invoke(self, payload: dict) -> dict:
         """Invoke the wrapped graph agent and normalize output format."""
         user_input = payload.get("input", "")
+        guard = check_user_input(user_input)
+        if not guard.allowed:
+            return {"output": guard.message, "messages": []}
         result = self._graph_agent.invoke(
             {"messages": [{"role": "user", "content": user_input}]}
         )

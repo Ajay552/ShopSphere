@@ -1,5 +1,7 @@
 import streamlit as st
 
+from tools.input_guard import check_user_input, get_error_fallback_message
+
 st.set_page_config(
     page_title="ShopSphere Assistant",
     page_icon="🛍️",
@@ -65,29 +67,38 @@ if user_input := st.chat_input("Ask ShopBot anything..."):
         st.write(user_input)
 
     with st.chat_message("assistant"):
-        with st.spinner("ShopBot is thinking..."):
-            response = ""
-            route_label = None
-            try:
-                if mode == "Part A - Basic Agent":
-                    basic_agent = load_basic_agent()
-                    result = basic_agent.invoke({"input": user_input})
-                    response = result["output"]
-                elif mode == "Part B - Deep Agent (Web)":
-                    deep = load_deep_agent()
-                    result = deep.invoke({"input": user_input})
-                    response = result["output"]
-                else:
-                    orchestrate, keyword_router = load_orchestrator()
-                    route_label = f"{keyword_router(user_input).upper()} AGENT"
-                    response = orchestrate(user_input)
-            except Exception as exc:  # pragma: no cover - runtime UI safeguard
-                response = (
-                    f"Error: {exc}\n\n"
-                    "Please confirm Ollama is running and dependencies are installed."
-                )
+        response = ""
+        route_label = None
+        blocked = False
+        guard = check_user_input(user_input)
+
+        if not guard.allowed:
+            response = guard.message
+            blocked = True
+        else:
+            with st.spinner("ShopBot is thinking..."):
+                try:
+                    if mode == "Part A - Basic Agent":
+                        basic_agent = load_basic_agent()
+                        result = basic_agent.invoke({"input": user_input})
+                        response = result["output"]
+                    elif mode == "Part B - Deep Agent (Web)":
+                        deep = load_deep_agent()
+                        result = deep.invoke({"input": user_input})
+                        response = result["output"]
+                    else:
+                        orchestrate, keyword_router = load_orchestrator()
+                        route_label = f"{keyword_router(user_input).upper()} AGENT"
+                        response = orchestrate(user_input)
+                except Exception as exc:  # pragma: no cover - runtime UI safeguard
+                    response = (
+                        f"{get_error_fallback_message()}\n\n"
+                        f"Details: {exc}"
+                    )
 
         st.write(response)
+        if blocked:
+            st.caption("Input blocked by safety check")
         if route_label:
             st.caption(f"🔀 Routed to: {route_label}")
 

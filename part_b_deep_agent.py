@@ -10,6 +10,7 @@ from langchain_core.messages import AIMessage
 from part_a_basic_agent import get_store_hours
 from tools.order_tools import get_order_status
 from tools.product_tools import apply_coupon, search_products
+from tools.input_guard import check_user_input
 from tools.utils import get_llm, load_prompt
 
 load_dotenv()
@@ -73,6 +74,9 @@ class DeepShopSphereAgent:
     def invoke(self, payload: dict) -> dict:
         """Invoke wrapped graph agent with a legacy-compatible payload."""
         user_input = payload.get("input", "")
+        guard = check_user_input(user_input)
+        if not guard.allowed:
+            return {"output": guard.message, "messages": []}
         result = self._graph_agent.invoke(
             {"messages": [{"role": "user", "content": user_input}]}
         )

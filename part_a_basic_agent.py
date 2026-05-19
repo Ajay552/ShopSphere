@@ -6,6 +6,7 @@ from langchain.tools import tool
 
 from tools.order_tools import get_order_status
 from tools.product_tools import apply_coupon, search_products
+from tools.input_guard import check_user_input
 from tools.utils import get_llm, load_data, load_prompt
 
 
@@ -44,6 +45,9 @@ class ShopSphereAgent:
     def invoke(self, payload: dict) -> dict:
         """Invoke the wrapped agent graph and normalize output shape."""
         user_input = payload.get("input", "")
+        guard = check_user_input(user_input)
+        if not guard.allowed:
+            return {"output": guard.message, "messages": []}
         result = self._graph_agent.invoke(
             {"messages": [{"role": "user", "content": user_input}]}
         )
