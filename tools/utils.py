@@ -1,5 +1,4 @@
 import functools
-import json
 from pathlib import Path
 
 import yaml
@@ -8,13 +7,6 @@ from langchain_ollama import ChatOllama
 # Resolve project directories relative to the package root.
 DATA_DIR = Path(__file__).parent.parent / "data"
 PROMPTS_DIR = Path(__file__).parent.parent / "prompts"
-
-
-def load_data(filename: str):
-    """Load and return parsed JSON content from the data directory."""
-    filepath = DATA_DIR / filename
-    with open(filepath, "r", encoding="utf-8") as file:
-        return json.load(file)
 
 
 @functools.lru_cache(maxsize=None)

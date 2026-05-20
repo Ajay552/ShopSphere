@@ -7,7 +7,8 @@ from langchain.tools import tool
 from tools.order_tools import get_order_status
 from tools.product_tools import apply_coupon, search_products
 from tools.input_guard import check_user_input
-from tools.utils import get_llm, load_data, load_prompt
+from tools.repository import get_store_hours as fetch_store_hours
+from tools.utils import get_llm, load_prompt
 
 
 @tool
@@ -21,7 +22,7 @@ def get_store_hours(location: str) -> str:
     Returns:
         Weekday and weekend operating hours, or a not-found message.
     """
-    store_hours = load_data("store_hours.json")
+    store_hours = fetch_store_hours()
     info = store_hours.get(location)
     if info is None:
         available_locations = ", ".join(store_hours.keys())

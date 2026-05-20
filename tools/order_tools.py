@@ -1,6 +1,6 @@
 from langchain.tools import tool
 
-from tools.utils import load_data
+from tools.repository import get_order_by_id, get_orders
 
 
 @tool
@@ -15,15 +15,9 @@ def get_order_status(order_id: str, customer_email: str) -> str:
     Returns:
         A formatted order status response, or an error when no match is found.
     """
-    orders = load_data("orders.json")
-    order = next(
-        (
-            item
-            for item in orders
-            if item["order_id"] == order_id and item["customer_email"] == customer_email
-        ),
-        None,
-    )
+    order = get_order_by_id(order_id)
+    if order and order["customer_email"] != customer_email:
+        order = None
     if order is None:
         return f"No order found for ID '{order_id}' with email '{customer_email}'."
 
@@ -50,8 +44,7 @@ def cancel_order(order_id: str, reason: str) -> str:
     Returns:
         Cancellation confirmation with refund details, or an eligibility message.
     """
-    orders = load_data("orders.json")
-    order = next((item for item in orders if item["order_id"] == order_id), None)
+    order = get_order_by_id(order_id)
     if order is None:
         return f"No order found with ID '{order_id}'."
 
@@ -79,11 +72,10 @@ def track_shipment(tracking_number: str) -> str:
     Returns:
         Shipment status details resolved from order data, or a not-found message.
     """
-    orders = load_data("orders.json")
     order = next(
         (
             item
-            for item in orders
+            for item in get_orders()
             if item.get("tracking_number") and item["tracking_number"] == tracking_number
         ),
         None,
@@ -121,8 +113,7 @@ def process_return(order_id: str, items: str) -> str:
     Returns:
         Return request confirmation with next steps, or an eligibility error.
     """
-    orders = load_data("orders.json")
-    order = next((item for item in orders if item["order_id"] == order_id), None)
+    order = get_order_by_id(order_id)
     if order is None:
         return f"No order found with ID '{order_id}'."
 

@@ -1,6 +1,6 @@
 from langchain.tools import tool
 
-from tools.utils import load_data
+from tools.repository import get_coupons, get_product_by_sku, get_products
 
 
 @tool
@@ -16,7 +16,7 @@ def search_products(query: str, category: str, max_price: float) -> str:
     Returns:
         A formatted list of matching products, or a no-results message.
     """
-    products = load_data("products.json")
+    products = get_products()
     query_lower = query.lower().strip()
     category_lower = category.lower().strip()
     # Split into individual tokens so "running shoes" matches "Running Shoe" (singular),
@@ -62,8 +62,7 @@ def get_product_details(sku: str) -> str:
     Returns:
         A formatted detail view for the product, or an error if not found.
     """
-    products = load_data("products.json")
-    product = next((item for item in products if item["sku"] == sku), None)
+    product = get_product_by_sku(sku)
     if product is None:
         return f"No product found with SKU '{sku}'."
 
@@ -92,8 +91,7 @@ def check_inventory(sku: str, location: str) -> str:
     Returns:
         A human-readable availability response for the requested location.
     """
-    products = load_data("products.json")
-    product = next((item for item in products if item["sku"] == sku), None)
+    product = get_product_by_sku(sku)
     if product is None:
         return f"No product found with SKU '{sku}'."
 
@@ -118,7 +116,7 @@ def get_recommendations(user_id: str) -> str:
     Returns:
         A formatted recommendation list of in-stock products.
     """
-    products = load_data("products.json")
+    products = get_products()
     in_stock_products = [product for product in products if product["in_stock"]]
     if not in_stock_products:
         return f"No recommendations are currently available for user '{user_id}'."
@@ -143,7 +141,7 @@ def apply_coupon(code: str, cart_total: float) -> str:
     Returns:
         Discount details and updated total, or an invalid-coupon message.
     """
-    coupons = load_data("coupons.json")
+    coupons = get_coupons()
     normalized_code = code.upper().strip()
     coupon = next(
         (item for item in coupons if item["code"].upper() == normalized_code and item["active"]),

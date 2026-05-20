@@ -30,6 +30,9 @@ htmlcov/
 # Streamlit local secrets
 .streamlit/secrets.toml
 
+# Generated SQLite database (seed from data/*.json)
+data/shopsphere.db
+
 # Editors / OS
 .idea/
 .vscode/
